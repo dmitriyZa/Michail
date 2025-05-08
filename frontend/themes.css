@@ -1,0 +1,15 @@
+:root {
+    --bulma-primary: #00d1b2; /* Основной цвет */
+    --bulma-link: #3273dc; /* Цвет ссылки */
+    --bulma-info: #209cee; /* Цвет информации */
+    --bulma-success: #23d160; /* Цвет успеха */
+    --bulma-warning: #ffdd57; /* Цвет предупреждения */
+    --bulma-danger: #ff3860; /* Цвет опасности */
+    --bulma-light: #f5f5f5; /* Светлый фон */
+    --bulma-dark: #363636; /* Темный текст */
+}
+
+/* Дополнительные стили для светлой темы */
+body {
+    background-color: var(--bulma-light);    
+}
