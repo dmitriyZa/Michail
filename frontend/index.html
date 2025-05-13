@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Храм - Календарь</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .calendar-day {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .calendar-day:hover {
+            background-color: #f8f9fa;
+        }
+        .active-day {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .navbar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационное меню -->
+    <nav class="navbar navbar-expand-lg mb-4">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О храме</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Фотогалерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Как добраться</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Основной контент -->
+            <div class="col-md-8">
+                <h2 class="mb-4">Календарь</h2>
+                
+                <!-- Календарь -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <button id="prev-month" class="btn btn-outline-primary"><i class="fas fa-chevron-left"></i></button>
+                            <h4 id="current-month-year" class="text-center">Май 2025</h4>
+                            <button id="next-month" class="btn btn-outline-primary"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Пн</th>
+                                        <th>Вт</th>
+                                        <th>Ср</th>
+                                        <th>Чт</th>
+                                        <th>Пт</th>
+                                        <th>Сб</th>
+                                        <th>Вс</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calendar-body">
+                                    <!-- Календарь будет заполняться через JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Описание дня -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Описание дня</h4>
+                    </div>
+                    <div class="card-body" id="day-description">
+                        <p>Выберите день в календаре, чтобы увидеть информацию</p>
+                    </div>
+                </div>
+                
+                <!-- Основные новости -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Основные новости</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group" id="news-list">
+                            <!-- Новости будут загружаться через AJAX -->
+                            <div class="list-group-item">Новость 1</div>
+                            <div class="list-group-item">Новость 2</div>
+                            <div class="list-group-item">Новость 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Боковая панель -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Краткая информация</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Здесь будет краткая информация о храме и текущих событиях.</p>
+                    </div>
+                </div>
+                
+                <!-- Социальные сети -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Мы в соцсетях</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-around">
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-vk"></i> ВКонтакте</a>
+                            <a href="#" class="btn btn-outline-primary"><i class="fab fa-telegram"></i> Telegram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery и Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Календарь JavaScript -->
+    <script>
+        $(document).ready(function() {
+            let currentDate = new Date(2025, 4, 13); // Май 2025 (месяцы 0-11)
+            
+            // Инициализация календаря
+            function renderCalendar() {
+                const monthYear = document.getElementById('current-month-year');
+                const calendarBody = document.getElementById('calendar-body');
+                
+                // Очищаем календарь
+                calendarBody.innerHTML = '';
+                
+                // Устанавливаем текущий месяц и год
+                const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                monthYear.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+                
+                // Получаем первый день месяца и день недели
+                const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+                const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Пн=0, Вт=1, ..., Вс=6
+                
+                // Получаем количество дней в месяце
+                const monthLength = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+                
+                // Получаем количество дней в предыдущем месяце
+                const prevMonthLength = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+                
+                let date = 1;
+                let nextMonthDate = 1;
+                let calendarHTML = '';
+                
+                // Создаем строки календаря
+                for (let i = 0; i < 6; i++) {
+                    // Прерываем цикл если месяц закончился и мы уже начали следующий
+                    if (date > monthLength) break;
+                    
+                    calendarHTML += '<tr>';
+                    
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < startingDay) {
+                            // Дни предыдущего месяца
+                            calendarHTML += `<td class="text-muted">${prevMonthLength - startingDay + j + 1}</td>`;
+                        } else if (date > monthLength) {
+                            // Дни следующего месяца
+                            calendarHTML += `<td class="text-muted">${nextMonthDate++}</td>`;
+                        } else {
+                            // Дни текущего месяца
+                            const dayClass = date === 13 && currentDate.getMonth() === 4 && currentDate.getFullYear() === 2025 ? 
+                                'calendar-day active-day' : 'calendar-day';
+                            calendarHTML += `<td class="${dayClass}" data-date="${date}">${date}</td>`;
+                            date++;
+                        }
+                    }
+                    
+                    calendarHTML += '</tr>';
+                }
+                
+                calendarBody.innerHTML = calendarHTML;
+                
+                // Добавляем обработчики событий для дней
+                $('.calendar-day').click(function() {
+                    $('.calendar-day').removeClass('active-day');
+                    $(this).addClass('active-day');
+                    
+                    const selectedDate = $(this).data('date');
+                    updateDayDescription(selectedDate);
+                });
+            }
+            
+            // Обновление описания дня
+            function updateDayDescription(day) {
+                const month = currentDate.getMonth() + 1;
+                const year = currentDate.getFullYear();
+                
+                // Здесь будет AJAX запрос к Spring Boot бэкенду
+                // $.get(`/api/events?day=${day}&month=${month}&year=${year}`, function(data) {
+                //     $('#day-description').html(data.description);
+                // });
+                
+                // Временный пример
+                $('#day-description').html(`
+                    <h5>${day} ${getMonthName(currentDate.getMonth())} ${year}</h5>
+                    <p>Информация о событиях этого дня будет загружена с сервера.</p>
+                `);
+            }
+            
+            // Вспомогательная функция для получения названия месяца
+            function getMonthName(monthIndex) {
+                const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 
+                               'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+                return months[monthIndex];
+            }
+            
+            // Обработчики для кнопок переключения месяцев
+            $('#prev-month').click(function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+            
+            $('#next-month').click(function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+            
+            // Инициализируем календарь при загрузке
+            renderCalendar();
+            
+            // Инициализируем описание для текущего дня
+            updateDayDescription(13);
+        });
+    </script>
+</body>
+</html>
