@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">    
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ortox.ru/api/calendar/cdn/calendar.js"></script>    
 </head>
 <body>
     <!-- Навигационное меню -->
@@ -74,6 +75,19 @@
                                     <!-- Календарь будет заполняться через JavaScript -->
                                 </tbody>
                             </table>
+                            <div
+	data-ortox-id = "pvk"
+	data-ortox-title = "Православный календарь"
+	data-ortox-theme = "inverse"
+	data-ortox-day = "08-10-2024"
+	data-ortox-saint = "N"
+	data-ortox-icons = "N"
+	data-ortox-reading = "Y"
+	data-ortox-akafist = "Y"
+	data-ortox-molitva = "Y"
+	data-ortox-tropar = "Y"
+	data-ortox-kanon = "Y"
+></div>
                         </div>
                     </div>
                 </div>
@@ -140,7 +154,7 @@
     <!-- Календарь JavaScript -->
     <script>
         $(document).ready(function() {
-            let currentDate = new Date(2025, 4, 14); // Май 2025 (месяцы 0-11)
+            let currentDate = new Date(); // Май 2025 (месяцы 0-11)
             
             // Инициализация календаря
             function renderCalendar() {
