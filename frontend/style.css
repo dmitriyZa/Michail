@@ -3,11 +3,12 @@
     transition: all 0.2s;
 }
 .calendar-day:hover {
-    background-color: #633548;
+    background-color: #5184b8;
 }
 .active-day {
-    background-color: #0d6efd;
-    color: white;
+    background-color: #5184b8 !important;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 50% !important;
 }
 .navbar {
     background-color: #5184b8;

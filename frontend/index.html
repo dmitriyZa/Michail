@@ -140,7 +140,7 @@
     <!-- Календарь JavaScript -->
     <script>
         $(document).ready(function() {
-            let currentDate = new Date(2025, 4, 13); // Май 2025 (месяцы 0-11)
+            let currentDate = new Date(2025, 4, 14); // Май 2025 (месяцы 0-11)
             
             // Инициализация календаря
             function renderCalendar() {
@@ -184,7 +184,7 @@
                             calendarHTML += `<td class="text-muted">${nextMonthDate++}</td>`;
                         } else {
                             // Дни текущего месяца
-                            const dayClass = date === 13 && currentDate.getMonth() === 4 && currentDate.getFullYear() === 2025 ? 
+                            const dayClass = date === new Date().getDate() && currentDate.getMonth() === new Date().getMonth() && currentDate.getFullYear() === new Date().getFullYear() ? 
                                 'calendar-day active-day' : 'calendar-day';
                             calendarHTML += `<td class="${dayClass}" data-date="${date}">${date}</td>`;
                             date++;
@@ -243,9 +243,9 @@
             
             // Инициализируем календарь при загрузке
             renderCalendar();
-            
+
             // Инициализируем описание для текущего дня
-            updateDayDescription(13);
+            updateDayDescription(new Date().getDate());
         });
     </script>
 </body>
