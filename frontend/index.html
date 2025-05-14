@@ -12,36 +12,8 @@
     <script src="https://ortox.ru/api/calendar/cdn/calendar.js"></script>    
 </head>
 <body>
-    <!-- Навигационное меню -->
-    <nav class="navbar navbar-expand-lg mb-4">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">О храме</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Фотогалерея</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Как добраться</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Место для навигационного меню -->
+    <div id="navbar-container"></div>
 
     <div class="container">
         <div class="row">
@@ -74,20 +46,7 @@
                                 <tbody id="calendar-body">
                                     <!-- Календарь будет заполняться через JavaScript -->
                                 </tbody>
-                            </table>
-                            <div
-	data-ortox-id = "pvk"
-	data-ortox-title = "Православный календарь"
-	data-ortox-theme = "inverse"
-	data-ortox-day = "08-10-2024"
-	data-ortox-saint = "N"
-	data-ortox-icons = "N"
-	data-ortox-reading = "Y"
-	data-ortox-akafist = "Y"
-	data-ortox-molitva = "Y"
-	data-ortox-tropar = "Y"
-	data-ortox-kanon = "Y"
-></div>
+                            </table>                         
                         </div>
                     </div>
                 </div>
@@ -98,8 +57,10 @@
                         <h4>Описание дня</h4>
                     </div>
                     <div class="card-body" id="day-description">
-                        <p>Выберите день в календаре, чтобы увидеть информацию</p>
-                    </div>
+                        <!-- Добавьте это в ваш HTML, где хотите отобразить календарь -->                       
+                    
+                    </div>                    
+            
                 </div>                                
             </div>
 
@@ -154,6 +115,9 @@
     <!-- Календарь JavaScript -->
     <script>
         $(document).ready(function() {
+
+            // Загружаем навигационное меню
+            $('#navbar-container').load('navbar.html');
             let currentDate = new Date(); // Май 2025 (месяцы 0-11)
             
             // Инициализация календаря
@@ -222,20 +186,39 @@
             
             // Обновление описания дня
             function updateDayDescription(day) {
-                const month = currentDate.getMonth() + 1;
-                const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+    
+    const formattedDate = `${String(day).padStart(2, '0')}${String(month).padStart(2, '0')}`;
+    
+    $('#day-description').html(`<h5>${day} ${getMonthName(currentDate.getMonth())} ${year}</h5><p>Загрузка данных...</p>`);
+    
+    // Используем CORS-прокси
+    $.get(`https://cors-anywhere.herokuapp.com/https://script.pravoslavie.ru/calendar.php?images=1&hrams=0&date=${formattedDate}`, function(data) {
+        $('#day-description').append(`<p>${data}</p>`); // Замените на нужный формат
+    }).fail(function() {
+        $('#day-description').append('<p>Ошибка загрузки данных.</p>');
+    });
+}
+
+
+        
+                // Обновляем src для iframe
+                //document.getElementById('calendar-frame').src = `https://script.pravoslavie.ru/calendar.php?images=1&hrams=0&date=${formattedDate}`;
                 
                 // Здесь будет AJAX запрос к Spring Boot бэкенду
                 // $.get(`/api/events?day=${day}&month=${month}&year=${year}`, function(data) {
                 //     $('#day-description').html(data.description);
                 // });
+
+
                 
                 // Временный пример
-                $('#day-description').html(`
+                /*$('#day-description').html(`
                     <h5>${day} ${getMonthName(currentDate.getMonth())} ${year}</h5>
                     <p>Информация о событиях этого дня будет загружена с сервера.</p>
-                `);
-            }
+                `);*/
+            
             
             // Вспомогательная функция для получения названия месяца
             function getMonthName(monthIndex) {
