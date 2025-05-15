@@ -2,18 +2,49 @@
     cursor: pointer;
     transition: all 0.2s;
 }
-.calendar-day:hover {
-    background-color: #5184b8;
-}
-.active-day {
-    background-color: #5184b8 !important;
-    color: rgb(255, 255, 255) !important;
-    border-radius: 50% !important;
-}
 .navbar {
     background-color: #5184b8;
     border-bottom: 1px solid #dee2e6;
 }
 .nav-link:hover{    
-    color: #fdfdfd;
+    color:  #5184b8;;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Добавьте этот CSS в файл style.css */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);      
+    max-width: 1200px; /* Максимальная ширина для контейнера */
+}
+
+/* Добавьте этот CSS в ваш style.css */
+.page-background {
+    background-color: #e9ecef; /* Цвет фона по умолчанию */
+    background-image: url('images/pic1.png'), url('images/pic1.png');
+    background-position: left center, right center; /* Позиционируем изображения по бокам */
+    background-repeat: no-repeat; /* Избегаем повторения изображений */
+    padding: 50px 0; /* Отступы для создания видимого фона */
+}
+
+h4 {
+    color: #343a40;
+}
+
+.btn-outline-primary {
+    border-color: #343a40;
+    color: #343a40;
+}
+
+.btn-outline-primary:hover {
+    background-color: #343a40;
+    color: white;
 }
