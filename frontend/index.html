@@ -8,8 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="https://ortox.ru/api/calendar/cdn/calendar.js"></script>    
+    <link rel="stylesheet" href="/style.css">        
 </head>
 <body>
     <!-- Навигационное меню -->
@@ -43,7 +42,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container">                
         <div class="row">
             <!-- Основной контент -->
             <div class="col-md-3">
@@ -74,20 +73,7 @@
                                 <tbody id="calendar-body">
                                     <!-- Календарь будет заполняться через JavaScript -->
                                 </tbody>
-                            </table>
-                            <div
-	data-ortox-id = "pvk"
-	data-ortox-title = "Православный календарь"
-	data-ortox-theme = "inverse"
-	data-ortox-day = "08-10-2024"
-	data-ortox-saint = "N"
-	data-ortox-icons = "N"
-	data-ortox-reading = "Y"
-	data-ortox-akafist = "Y"
-	data-ortox-molitva = "Y"
-	data-ortox-tropar = "Y"
-	data-ortox-kanon = "Y"
-></div>
+                            </table>                            
                         </div>
                     </div>
                 </div>
@@ -98,8 +84,11 @@
                         <h4>Описание дня</h4>
                     </div>
                     <div class="card-body" id="day-description">
-                        <p>Выберите день в календаре, чтобы увидеть информацию</p>
-                    </div>
+                        <p>Выберите день в календаре, чтобы увидеть информацию</p>                    
+                        
+                    </div>     
+                        
+                               
                 </div>                                
             </div>
 
@@ -222,7 +211,7 @@
             
             // Обновление описания дня
             function updateDayDescription(day) {
-                const month = currentDate.getMonth() + 1;
+                const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
                 const year = currentDate.getFullYear();
                 
                 // Здесь будет AJAX запрос к Spring Boot бэкенду
@@ -233,9 +222,10 @@
                 // Временный пример
                 $('#day-description').html(`
                     <h5>${day} ${getMonthName(currentDate.getMonth())} ${year}</h5>
-                    <p>Информация о событиях этого дня будет загружена с сервера.</p>
-                `);
-            }
+                    <p>Информация о событиях этого дня будет загружена с сервера.</p>                    
+                `);               
+                                
+            }            
             
             // Вспомогательная функция для получения названия месяца
             function getMonthName(monthIndex) {
