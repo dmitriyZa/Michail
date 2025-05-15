@@ -2,10 +2,6 @@
     cursor: pointer;
     transition: all 0.2s;
 }
-.navbar {
-    background-color: #5184b8;
-    border-bottom: 1px solid #dee2e6;
-}
 .nav-link:hover{    
     color:  #5184b8;;
 }
@@ -15,7 +11,7 @@
 }
 /* Добавьте этот CSS в файл style.css */
 body {
-    background-color: #f8f9fa;
+    background-color: #fafafa;
     font-family: 'Arial', sans-serif;
 }
 .container {
@@ -28,8 +24,8 @@ body {
 
 /* Добавьте этот CSS в ваш style.css */
 .page-background {
-    background-color: #e9ecef; /* Цвет фона по умолчанию */
-    background-image: url('images/pic1.png'), url('images/pic1.png');
+    background-color: #5184b8; /* Цвет фона по умолчанию */
+    background-image: url('images/pic4.png'), url('images/pic4.png');
     background-position: left center, right center; /* Позиционируем изображения по бокам */
     background-repeat: no-repeat; /* Избегаем повторения изображений */
     padding: 50px 0; /* Отступы для создания видимого фона */
