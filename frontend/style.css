@@ -10,9 +10,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 /* Добавьте этот CSS в файл style.css */
-body {
-    background-color: #fafafa;
-    font-family: 'Arial', sans-serif;
+body {    
+    background-color: #5184b8;
+    font-family: 'Arial', sans-serif;   
+    
 }
 .container {
     background-color: #ffffff;
@@ -21,14 +22,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);      
     max-width: 1200px; /* Максимальная ширина для контейнера */
 }
-
-/* Добавьте этот CSS в ваш style.css */
-.page-background {
-    background-color: #5184b8; /* Цвет фона по умолчанию */
-    background-image: url('images/pic4.png'), url('images/pic4.png');
+.page{
+    background-image: url('images/pencil.png'), url('images/pencil.png');
     background-position: left center, right center; /* Позиционируем изображения по бокам */
-    background-repeat: no-repeat; /* Избегаем повторения изображений */
-    padding: 50px 0; /* Отступы для создания видимого фона */
+    background-repeat: no-repeat; /* Избегаем повторения изображений */    
+    padding: 50px 0; /* Отступы для создания видимого фона */;
 }
 
 h4 {
