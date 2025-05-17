@@ -2,31 +2,56 @@
     cursor: pointer;
     transition: all 0.2s;
 }
-.nav-link:hover{    
-    color:  #5184b8;;
+
+.nav-link:hover {    
+    color: #5184b8;
 }
+
 .card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* Добавьте этот CSS в файл style.css */
-body {    
-    background-color: #5184b8;
-    font-family: 'Arial', sans-serif;   
-    
+
+body {        
+    font-family: 'Cinzel', serif;  
 }
-.container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);      
-    max-width: 1200px; /* Максимальная ширина для контейнера */
+.header {    
+            font-family: 'Cinzel', serif; /* Применяем шрифт Cardo */
+            background-color: #83acd4; /* Цвет фона */
+            background-image: url('path/to/your/pattern.png'); /* Путь к изображению узора */
+            background-size: cover; /* Масштабирование изображения */
+            color: #FFF5E1; /* Цвет текста */            
+            padding: 20px 20px; /* Отступы сверху и снизу */
+            position: relative; /* Для позиционирования */
+        }
+.header h1 {
+            margin: 0; /* Убираем отступы у заголовка */
+            font-size: 2.5rem; /* Размер шрифта */
+        }
+
+.overlay-container {
+     position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1200px; /* Изменено на 100% для адаптивности */
+            background-color: #83acd4; 
+            z-index: 1000;
+            height: 100vh;
+            overflow-y: auto; /* Разрешить вертикальную прокрутку */
 }
-.page{
-    background-image: url('images/pencil.png'), url('images/pencil.png');
+
+#navbar-container {
+    position: relative; /* Устанавливаем относительное позиционирование */
+    z-index: 1001; /* Убедитесь, что он выше .overlay-container */
+}
+
+.page {
+    background-image: url('images/pencil1.png'), url('images/pencil2.png');
     background-position: left center, right center; /* Позиционируем изображения по бокам */
     background-repeat: no-repeat; /* Избегаем повторения изображений */    
-    padding: 50px 0; /* Отступы для создания видимого фона */;
+    padding: 50px 0; /* Отступы для создания видимого фона */
+    height: 100vh;
 }
 
 h4 {
