@@ -2,16 +2,13 @@
     cursor: pointer;
     transition: all 0.2s;
 }
-
 .nav-link:hover {    
     color: #5184b8;
 }
-
 .card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 body {        
     font-family: 'Cinzel', serif;  
 }
@@ -36,7 +33,6 @@ body {
         font-size: 2rem; /* Уменьшение размера шрифта на мобильных устройствах */
     }
 }
-
 .overlay-container {
      position: fixed;
             top: 0;
@@ -49,12 +45,10 @@ body {
             overflow-y: auto; /* Разрешить вертикальную прокрутку */
             padding-bottom: 100px;
 }
-
 #navbar-container {
     position: relative; /* Устанавливаем относительное позиционирование */
     z-index: 1001; /* Убедитесь, что он выше .overlay-container */
 }
-
 .page {
     background-image: url('images/pencil2.png'), url('images/pencil1.png');
     background-position: left center, right center; /* Позиционируем изображения по бокам */
@@ -62,7 +56,6 @@ body {
     padding: 50px 0; /* Отступы для создания видимого фона */
     height: 100vh;    
 }
-
 .footer {
     background-color: #ffffff; /* Белый фон */
     padding: 20px 0; /* Отступы сверху и снизу */
@@ -71,31 +64,24 @@ body {
     bottom: 0; /* Фиксированное положение внизу страницы */
     width: 100%; /* Ширина на весь экран */    
 }
-
 .footer p {
     margin: 0; /* Убираем отступы у параграфов */
     color: #343a40; /* Цвет текста */
 }
-
 .footer a {
     color: #5184b8; /* Цвет ссылок */
     text-decoration: none; /* Убираем подчеркивание */
 }
-
 .footer a:hover {
     text-decoration: underline; /* Подчеркивание при наведении */
 }
-
-
 h4 {
     color: #343a40;
 }
-
 .btn-outline-primary {
     border-color: #343a40;
     color: #343a40;
 }
-
 .btn-outline-primary:hover {
     background-color: #343a40;
     color: white;
