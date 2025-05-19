@@ -38,7 +38,7 @@ body {
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 1200px; /* Изменено на 100% для адаптивности */
+            width: 70%; /* Изменено на 100% для адаптивности */
             background-color: #83acd4; 
             z-index: 1000;
             height: 100vh;
