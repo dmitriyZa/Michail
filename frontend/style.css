@@ -45,7 +45,7 @@ body {
             overflow-y: auto; /* Разрешить вертикальную прокрутку */
             padding-bottom: 100px;
 }
-#navbar-container {
+#navbar-container{
     position: relative; /* Устанавливаем относительное позиционирование */
     z-index: 1001; /* Убедитесь, что он выше .overlay-container */
 }
