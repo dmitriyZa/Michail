@@ -31,8 +31,8 @@ body {
     }
     .header h1 {
         font-size: 2rem; /* Уменьшение размера шрифта на мобильных устройствах */
-    }
-}
+    }   
+  }
 .overlay-container {
      position: fixed;
             top: 0;
