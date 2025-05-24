@@ -86,3 +86,10 @@ h4 {
     background-color: #343a40;
     color: white;
 }
+article {
+            font-size: 22px; /* Увеличиваем размер шрифта */
+            font-weight: bold;
+            color: #333;
+            font-family: 'Georgia', serif; /* Меняем шрифт на Arial */
+            line-height: 1.6;
+        }
