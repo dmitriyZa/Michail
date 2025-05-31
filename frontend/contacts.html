@@ -26,21 +26,52 @@
 </script>
 </head>
 <body>
+    
     <div class="overlay-container">
-    <div id="navbar-container"></div>
-        <div class="container">
-        <div class="row">
-            <div class="card d-flex flex-row w-850 p-3">
-                <div class="card m-2" style="width:500px; height:400px">
-            <div id="map" style="width:500px; height:400px"></div></div>
-            <div class="card w-400 p-3" style="width:500px; height:400px">
+  <div id="navbar-container"></div>
+  <div class="container">
+    <div class="row">
+      <!-- Контейнер карточек -->
+      <div class="col-12">
+        <div class="row g-4 align-items-stretch">
+          <!-- Карта -->
+          <div class="col-lg-8">
+            <div class="card shadow-sm h-100">
+              <div class="card-body p-0 ratio ratio-16x9">
+                <div id="map" class="w-100 h-100"></div>
+              </div>
+            </div>
+          </div>
 
-             <p>Телефон:88888888888</p>   
+          <!-- Контакты -->
+          <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body p-4 d-flex flex-column justify-content-center">
+                <div class="d-grid gap-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-phone fa-fw me-3 text-primary fs-5"></i>
+                    <div>
+                      <div class="text-muted small">Телефон для связи</div>
+                      <a href="tel:+78888888888" class="text-decoration-none h5 mb-0">+7 (888) 888-88-88</a>
+                    </div>
+                  </div>
+                  <hr class="my-2">
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-clock fa-fw me-3 text-primary fs-5"></i>
+                    <div>
+                      <div class="text-muted small">Часы работы</div>
+                      <div class="h6 mb-0">Ежедневно 8:00 - 19:00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
+</div>
     <div class="page">
         
     </div>
